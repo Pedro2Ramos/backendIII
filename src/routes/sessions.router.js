@@ -4,7 +4,6 @@ import { login, register, current } from '../controllers/auth.controller.js';
 
 const router = Router();
 
-// Middleware para verificar JWT
 const passportCall = (strategy) => {
     return async (req, res, next) => {
         passport.authenticate(strategy, { session: false }, function(err, user, info) {

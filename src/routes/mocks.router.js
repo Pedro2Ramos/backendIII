@@ -3,7 +3,6 @@ import { faker } from '@faker-js/faker';
 
 const router = Router();
 
-// Generar una mascota mock
 const generatePet = () => {
     return {
         id: faker.string.uuid(),
@@ -17,7 +16,6 @@ const generatePet = () => {
     };
 };
 
-// Ruta para generar mascotas mock
 router.get('/pets', (req, res) => {
     const count = parseInt(req.query.count) || 100;
     const pets = Array.from({ length: count }, generatePet);

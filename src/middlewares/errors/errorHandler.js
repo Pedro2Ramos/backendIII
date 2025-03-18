@@ -3,7 +3,7 @@ import { logger } from '../../utils/logger.js';
 export const errorHandler = (err, req, res, next) => {
     logger.error(err.stack);
 
-    // Errores específicos de la aplicación
+
     if (err.name === 'ValidationError') {
         return res.status(400).json({
             status: 'error',
@@ -20,7 +20,7 @@ export const errorHandler = (err, req, res, next) => {
         });
     }
 
-    // Error por defecto
+    
     res.status(500).json({
         status: 'error',
         error: 'Internal Server Error',
