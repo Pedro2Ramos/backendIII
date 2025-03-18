@@ -1,7 +1,5 @@
-import { logger } from '../../utils/logger.js';
-
 export const errorHandler = (err, req, res, next) => {
-    req.logger.error('Error:', err);
+    console.error('Error:', err.stack);
 
 
     let statusCode = err.status || 500;
@@ -30,6 +28,7 @@ export const errorHandler = (err, req, res, next) => {
         timestamp: new Date().toISOString()
     });
 };
+
 
 export const notFoundHandler = (req, res, next) => {
     const error = new Error('Ruta no encontrada: ${req.originalUrl}');
